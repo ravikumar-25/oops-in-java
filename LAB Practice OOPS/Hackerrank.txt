@@ -1,0 +1,251 @@
+Java program to calculate and print Fibonacci number using both recursion and Iteration. Fibonacci number is sum of previous two Fibonacci numbers fn= fn-1+ fn-2 first 10 Fibonacci numbers are 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
+
+Sample Input 0
+
+12
+Sample Output 0
+
+Enter number upto which Fibonacci series to print: 12 
+Fibonacci series upto 12 numbers : 
+1 1 2 3 5 8 13 21 34 55 89 144
+
+Solution:
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter number upto which Fibonacci series to print: ");
+        int count=sc.nextInt();
+        System.out.println(count);
+        System.out.println("Fibonacci series upto " +count+ " numbers :");
+        int n1=1;
+        int n2=1;
+        System.out.print(n1+" "+n2);
+        int n3=1, n4, n5;
+        int i=1;
+        while(i<=count-2)
+        {
+            n3=n1+n2;
+            System.out.print(" "+n3);
+            n1=n2;
+            n2=n3;
+            i++;
+        }
+    }
+}
+
+==============================================================================================
+To Find Greatest Common Divisor of two numbers
+
+Sample Input 0
+
+54
+24
+Sample Output 0
+
+Please enter first number to find GCD 54 
+Please enter second number to find GCD 24 
+GCD of two numbers 54 and 24 is :6
+
+Solution:
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+         Scanner sc= new Scanner(System.in);
+        System.out.print("Please enter first number to find GCD ");
+        int a=sc.nextInt();
+         System.out.println(a);
+        
+        System.out.print("Please enter second number to find GCD ");
+        int b=sc.nextInt();
+        System.out.println(b);
+        
+        int L=1;
+        int GCD=1;
+        int c=a;
+        int d=b;
+        
+        for (int i=2; i<=a || i<=b; i++)
+        {
+            while (a%i==0 || b%i==0)
+            {
+                if (a%i==0)
+                    a=a/i;
+                if (b%i==0)
+                    b=b/i;
+                L=L*i;
+                GCD=c*d/L;
+            }
+        }
+        System.out.println("GCD of two numbers 54 and 24 is :"+GCD);
+    }
+}
+
+=====================================================================================
+Java Program to print all happy numbers between 1 and 100.
+
+How to check if a number is a happy number
+
+A happy number is a number that reaches 1 after a sequence of steps. In each step, the number is replaced by the sum of its squared digits.
+
+Formula:
+
+32 + 22 = 13 12 + 32 = 10 12 + 02 = 1
+
+Some of the other examples of happy numbers are 7, 28, 100, 320 and so on.
+
+Unhappy number will result into a cycle of 4, 16, 37, 58, 89, 145, 42, 20, 4, ...
+
+To find whether a given number is happy or not, calculate the square of each digit present in number and add it to a variable sum. If resulting sum is equal to 1 then, given number is a happy number. If the sum is equal to 4 then, the number is an unhappy number. Else, replace the number with the sum of the square of digits.
+
+Algorithm:
+
+1.isHappyNumber() determines whether a given number is happy or not.
+
+If the number is greater than 0, calculate remainder rem by dividing the number with 10.
+Calculate square of rem and add it to a variable sum.
+Divide number by 10.
+Repeat the steps from a to c till the sum of the square of all digits present in number has been calculated.
+Finally, return the sum.
+2.To display all happy numbers between 1 and 100,
+
+Start a loop from 1 to 100, then make a call to isHappyNumber() method for each value from 1 to 100 and store the return value into a variable result.
+If the result is neither equal to 1 nor 4 then, make a call to isHappyNumber().
+Otherwise, if the result is equal to 1, it implies that the number is happy and display it.
+Sample Input 0
+
+10
+Sample Output 0
+
+List of happy numbers between 1 and 10: 
+1 7 10
+Sample Input 1
+
+100
+Sample Output 1
+
+List of happy numbers between 1 and 100: 
+1 7 10 13 19 23 28 31 32 44 49 68 70 79 82 86 91 94 97 100
+
+Solution:
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int n= sc.nextInt();
+        
+        System.out.println("List of happy numbers between 1 and "+n+":");
+                         
+        for (int i=1; i<=n; i++)
+                         {
+                             int result=i;
+                             
+                             while (result!=1 && result!=4)
+                             {
+                                 result=isHappyNumber(result);
+                             }
+                             
+                             if (result==1)
+                             {
+                                 System.out.print(i+" ");
+                             }
+                         }  
+    }
+                         
+        static int isHappyNumber(int num)
+            {
+                int rem=0;
+                int sum=0;
+                
+                while(num>0)
+                {
+                    rem=num%10;
+                    num=num/10;
+                    sum=sum+(rem*rem);
+                }
+                return sum;
+            }
+
+}
+=======================================================================================
+Java program to find duplicate characters in a given String.
+
+Sample Input 0
+
+Programming
+Combination
+Java
+Sample Output 0
+
+List of duplicate characters in String 'Programming' 
+r : 2 
+g : 2 
+m : 2 
+List of duplicate characters in String 'Combination' 
+i : 2 
+n : 2 
+o : 2 
+List of duplicate characters in String 'Java' 
+a : 2 
+
+Solution:
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int n=1;
+        
+        while(n<=3)
+        {
+        String s1 = sc.next();
+       /* if(n==2)
+        {
+            StringBuilder str = new StringBuilder(s1);
+            s1=(str.reverse()).toString();
+        }*/
+        
+        char arr[]=s1.toCharArray();
+        
+       
+        int count;
+        System.out.println("List of duplicate characters in String \'"   +s1+ "\'");
+     
+        for(int i=0; i<arr.length; i++)
+        {
+            count=1;
+            
+            for(int j=i+1; j<arr.length; j++)
+            {
+                if(arr[i]==arr[j])
+                {
+                    count++;
+                }
+            }}
+            
+            if(count>1)
+            {
+           System.out.println(arr[i]+" : "+count); 
+            }   
+        }
+         n++;   
+        }    
+    }
+}
+====================================================================================
