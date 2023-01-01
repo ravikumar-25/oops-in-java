@@ -52,7 +52,7 @@ class Demo
 	System.out.println("Sum of two numbers is "+c);
 	System.out.println("Subtraction of two numbers is "+d);
 	System.out.println("Multiplication of two numbers is "+e);
-	System.out.println("Power of second no to first no is "+f);
+	System.out.println("Power of second no to first no is: "+f);
 	
 	
 	
